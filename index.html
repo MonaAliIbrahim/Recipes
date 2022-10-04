@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>My Recipes</title>
+    <link href="./images/favicon_io/favicon-32x32.png" rel="icon">
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Satisfy&display=swap" rel="stylesheet">  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">Cooking Time</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#homeNavbar" aria-controls="homeNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="homeNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item text-capitalize">
+                <a class="nav-link active" href="#recepiesSection">steak</a>
+              </li>
+              <li class="nav-item text-capitalize">
+                <a class="nav-link" href="#recepiesSection">chicken</a>
+              </li>
+              <li class="nav-item text-capitalize">
+                <a class="nav-link" href="#recepiesSection">pasta</a>
+              </li>
+              <li class="nav-item text-capitalize">
+                <a class="nav-link" href="#recepiesSection">pizza</a>
+              </li>
+              <li class="nav-item text-capitalize">
+                <a class="nav-link" href="#recepiesSection">kebab</a>
+              </li>
+              <li class="nav-item text-capitalize">
+                <a class="nav-link" href="#recepiesSection">cake</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+      <!-- Slider -->
+      <section class="slider-section">
+        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div style="background-image: url('images/slider/1.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+              <div style="background-image: url('images/slider/2.jpg');"></div>
+            </div>
+            <div class="carousel-item">
+              <div style="background-image: url('images/slider/3.jpg');"></div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+    </header>
+    <main>
+      <!-- Recepie Cards -->
+      <section id="recepiesSection" class="py-4">
+        <h2 class="section-title py-5"></h2>
+        <div class="container my-5">
+          <div id="recepies" class="row gy-5">
+          </div>
+        </div>
+      </section>
+      <!-- Recepie Details -->
+      <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"></div>
+      </div>
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
