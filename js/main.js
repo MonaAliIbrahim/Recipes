@@ -26,7 +26,7 @@ function getRecipe(searchText) {
   httpRequest.open('GET',`https://forkify-api.herokuapp.com/api/search?q=${searchText}`);
   httpRequest.send();
   httpRequest.addEventListener('readystatechange', function() {
-    if(httpRequest.readyState === 4) {
+    if(httpRequest.readyState === 4 && httpRequest.status === 200) {
       recipes = JSON.parse(httpRequest.response).recipes;
       displayCards();
     }
@@ -62,7 +62,7 @@ function getRecepieDetails(id) {
   httpRequest.open('GET',`https://forkify-api.herokuapp.com/api/get?rId=${id}`);
   httpRequest.send();
   httpRequest.addEventListener('readystatechange', function() {
-    if(httpRequest.readyState === 4) {
+    if(httpRequest.readyState === 4 && httpRequest.status === 200) {
       recipeDetails = JSON.parse(httpRequest.response).recipe;
       displayDetailsModal(recipeDetails);
     }
