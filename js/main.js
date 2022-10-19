@@ -1,6 +1,12 @@
-var navbar = document.getElementById('homeNavbar'),
-    navItems = document.querySelectorAll('#homeNavbar .nav-link'),
-    queryParam = 'steak';
+$(document).ready(function() {
+  // Handle Loading Screen
+  $('.loading').css({'animation': 'loadingHide 2s'}).fadeOut(2000, function() {
+      $('body').css('overflow', 'visible');
+  });
+}); 
+
+let navItems = document.querySelectorAll('#homeNavbar .nav-link'),
+queryParam = 'steak';
 
 getRecipe(queryParam);
 
@@ -35,23 +41,23 @@ function getRecipe(searchText) {
 
 function displayCards() {
   var recepiesContainer = document.getElementById('recepies'),
-      title = document.getElementsByClassName('section-title')[0];
-      cards = '';
+    title = document.getElementsByClassName('section-title')[0];
+    cards = '';
   for(var i = 0; i < recipes.length; i++) {
-    cards += 
-      `<div class="col-sm-6 col-md-4">
-        <div class="card text-center h-100" id="${recipes[i].recipe_id}">
-          <div class="img-container">
-            <img src="${recipes[i].image_url}" class="card-img-top" alt="Recipe Image">
-          </div>
-          <div class="card-body my-3">
-            <h5 class="card-title mb-3">${recipes[i].title}</h5>
-            <a href="${recipes[i].source_url}" target="_blank" class="btn btn-primary m-1">Source</a>
-            <button class="btn btn-danger m-1" data-bs-toggle="modal" 
-                    onclick="getRecepieDetails(${recipes[i].recipe_id})" data-bs-target="#detailsModal">Details</button>
-          </div>
+  cards += 
+    `<div class="col-sm-6 col-md-4">
+      <div class="card text-center h-100" id="${recipes[i].recipe_id}">
+        <div class="img-container">
+          <img src="${recipes[i].image_url}" class="card-img-top" alt="Recipe Image">
         </div>
-      </div>`
+        <div class="card-body my-3">
+          <h5 class="card-title mb-3">${recipes[i].title}</h5>
+          <a href="${recipes[i].source_url}" target="_blank" class="btn btn-primary m-1">Source</a>
+          <button class="btn btn-danger m-1" data-bs-toggle="modal" 
+                  onclick="getRecepieDetails(${recipes[i].recipe_id})" data-bs-target="#detailsModal">Details</button>
+        </div>
+      </div>
+    </div>`
   }
   title.innerHTML = `${queryParam} recepies`;
   recepiesContainer.innerHTML = cards;
@@ -70,8 +76,8 @@ function getRecepieDetails(id) {
 }
 
 function displayDetailsModal(recipe) {
-  var ingredients = '',
-      modalContent = `
+  let ingredients = '',
+  modalContent = `
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="modalLabel">${recipe.title}</h1>
@@ -90,11 +96,12 @@ function displayDetailsModal(recipe) {
           ${String(recipe.social_rank).substring(0,5)}
         </h6>
       </div>
-    </div>
-  `;
-  for(let i = 0; i < recipe.ingredients.length; i++){
+    </div>`;
+
+  for(let i = 0; i < recipe.ingredients.length; i++) {
     ingredients += `<li>${recipe.ingredients[i]}</li>`;
   }
+
   document.querySelector('#detailsModal > div').innerHTML = modalContent;
   document.querySelector('#ingredients').innerHTML = ingredients;
 }
